@@ -7,7 +7,7 @@
   <meta name="description" content="Freelance developer & designer building web, mobile, and AI-powered products." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;0,800;1,700&family=Nunito+Sans:ital,opsz,wght@0,6..12,300;0,6..12,400;0,6..12,500;1,6..12,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;0,800;1,700&family=Nunito+Sans:ital,opsz,wght@0,6..12,300;0,6..12,400;0,6..12,500;1,6..12,400&family=Syne:wght@800&display=swap" rel="stylesheet" />
   <style>
     /* ─── TOKENS ─────────────────────────────────────────── */
     :root {
@@ -81,13 +81,26 @@
       gap: 24px;
     }
     .logo {
-      font-family: 'Nunito', sans-serif;
-      font-weight: 800;
-      font-size: 22px;
-      letter-spacing: -0.01em;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+      text-decoration: none;
+    }
+    .logo-icon {
+      width: 34px;
+      height: 34px;
       flex-shrink: 0;
     }
-    .logo span { color: var(--accent); }
+    .logo-word {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 20px;
+      line-height: 1;
+      letter-spacing: -.02em;
+    }
+    .logo-word .mael  { color: var(--text); }
+    .logo-word .plays { color: var(--accent); }
     .nav-links {
       display: flex;
       gap: 28px;
@@ -791,10 +804,27 @@
 </head>
 <body>
 
+  <!-- ICON SYMBOL (reused in nav + footer) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <symbol id="mp-icon" viewBox="0 0 100 100">
+        <rect width="100" height="100" rx="24" fill="#130F23"/>
+        <circle cx="78" cy="78" r="24" fill="#E86A3A" opacity=".18"/>
+        <path d="M19,79 L19,21 L50,55 L81,21 L81,79 L71,79 L71,32 L50,62 L29,32 L29,79 Z" fill="#F2F1ED"/>
+        <polygon points="40,47 40,63 54,55" fill="#E86A3A"/>
+      </symbol>
+    </defs>
+  </svg>
+
   <!-- NAV -->
   <nav>
     <div class="nav-in">
-      <a href="#" class="logo">EV<span>.</span></a>
+      <a href="#" class="logo">
+        <span class="logo-icon">
+          <svg viewBox="0 0 100 100" width="100%" height="100%" aria-hidden="true"><use href="#mp-icon"/></svg>
+        </span>
+        <span class="logo-word"><span class="mael">Mael</span><span class="plays">Plays</span></span>
+      </a>
       <ul class="nav-links">
         <li><a href="#hero">Home</a></li>
         <li><a href="#about">About</a></li>
@@ -1158,7 +1188,7 @@
   <footer>
     <div class="wrap">
       <div class="foot">
-        <span class="foot-l">MaelPlays</span>
+        <span class="foot-l logo-word"><span class="mael">Mael</span><span class="plays">Plays</span></span>
         <span class="foot-r">&copy; 2025 &mdash; Built with care</span>
       </div>
     </div>
