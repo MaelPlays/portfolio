@@ -458,6 +458,26 @@
     .t1-b1 { background: #15803D; }
     .t1-b2 { background: #166534; }
 
+    /* BlackHabit thumb */
+    .tbh .thumb { background: #0A0A0A; }
+    .tbh .thumb-chrome { background: #060606; }
+    .tbh-nav { height: 18px; background: #111; display: flex; align-items: center; padding: 0 10px; gap: 8px; border-bottom: 1px solid #222; margin-bottom: 10px; }
+    .tbh-logo { font-size: 7px; font-weight: 800; letter-spacing: .06em; color: #F5C300; font-family: sans-serif; }
+    .tbh-links { display: flex; gap: 6px; margin-left: auto; }
+    .tbh-link { width: 16px; height: 4px; border-radius: 1px; background: #333; }
+    .tbh-hero { padding: 0 10px; display: flex; align-items: flex-start; gap: 8px; }
+    .tbh-left { flex: 1; }
+    .tbh-badge { display: inline-block; font-size: 5px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #F5C300; background: rgba(245,195,0,.12); border-radius: 2px; padding: 1px 4px; margin-bottom: 5px; }
+    .tbh-h { font-size: 10px; font-weight: 900; color: #fff; line-height: 1.15; letter-spacing: -.01em; margin-bottom: 5px; }
+    .tbh-price { font-size: 9px; font-weight: 800; color: #F5C300; margin-bottom: 6px; }
+    .tbh-btn { display: inline-block; background: #F5C300; color: #000; font-size: 5px; font-weight: 800; padding: 2px 6px; border-radius: 2px; letter-spacing: .04em; }
+    .tbh-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; padding: 0 10px; margin-top: 8px; }
+    .tbh-card { background: #1A1A1A; border-radius: 3px; padding: 5px; }
+    .tbh-img { height: 18px; background: #2A2A2A; border-radius: 2px; margin-bottom: 3px; display: flex; align-items: center; justify-content: center; }
+    .tbh-dot { width: 10px; height: 10px; border-radius: 50%; background: #F5C300; opacity: .4; }
+    .tbh-cn { font-size: 5px; font-weight: 700; color: #fff; margin-bottom: 1px; }
+    .tbh-cp { font-size: 5px; font-weight: 800; color: #F5C300; }
+
     /* Card link */
     .card-link {
       display: inline-flex;
@@ -774,6 +794,7 @@
     .proj-grid .proj-card:nth-child(2) { transition-delay: .1s; }
     .proj-grid .proj-card:nth-child(3) { transition-delay: .2s; }
     .proj-grid .proj-card:nth-child(4) { transition-delay: .3s; }
+    .proj-grid .proj-card:nth-child(5) { transition-delay: .4s; }
     .tcard-grid .tcard:nth-child(2) { transition-delay: .1s; }
     .tcard-grid .tcard:nth-child(3) { transition-delay: .2s; }
     .blog-grid .bcard:nth-child(2) { transition-delay: .1s; }
@@ -1020,6 +1041,53 @@
             <p class="card-cat">Analytics / Web App</p>
             <p class="card-desc">Cross-platform analytics dashboard — connect YouTube, Instagram, and TikTok to track followers, views, engagement, and the best time to post.</p>
             <a href="https://vantage-jet-two.vercel.app/" target="_blank" rel="noopener" class="card-link">View Live &rarr;</a>
+          </div>
+        </div>
+
+        <!-- Project 05 — BlackHabit -->
+        <div class="proj-card tbh reveal">
+          <div class="thumb">
+            <div class="thumb-chrome">
+              <span class="dot-r"></span>
+              <span class="dot-r"></span>
+              <span class="dot-r"></span>
+            </div>
+            <div class="thumb-body">
+              <div class="tbh-nav">
+                <span class="tbh-logo">BLACKHABIT</span>
+                <div class="tbh-links">
+                  <span class="tbh-link"></span>
+                  <span class="tbh-link"></span>
+                  <span class="tbh-link"></span>
+                </div>
+              </div>
+              <div class="tbh-hero">
+                <div class="tbh-left">
+                  <span class="tbh-badge">Combo</span>
+                  <div class="tbh-h">CRISPY<br>CHICKEN<br>COMBO</div>
+                  <div class="tbh-price">₱159</div>
+                  <span class="tbh-btn">SEE MENU</span>
+                </div>
+              </div>
+              <div class="tbh-cards">
+                <div class="tbh-card">
+                  <div class="tbh-img"><span class="tbh-dot"></span></div>
+                  <div class="tbh-cn">Classic Burger</div>
+                  <div class="tbh-cp">₱129</div>
+                </div>
+                <div class="tbh-card">
+                  <div class="tbh-img"><span class="tbh-dot"></span></div>
+                  <div class="tbh-cn">Crispy Chicken</div>
+                  <div class="tbh-cp">₱139</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-foot">
+            <p class="card-name">BlackHabit</p>
+            <p class="card-cat">Restaurant / Web App</p>
+            <p class="card-desc">Full-stack ordering site for a Filipino fast food brand — menu browsing, daily deals, combo builder, and store locator across Metro Manila locations.</p>
+            <a href="https://blackhabit.vercel.app/" target="_blank" rel="noopener" class="card-link">View Live &rarr;</a>
           </div>
         </div>
 
