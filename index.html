@@ -336,45 +336,6 @@
       color: var(--text);
       line-height: 1.05;
     }
-    .view-all {
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--muted);
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      padding-bottom: 2px;
-      transition: color .15s, gap .15s;
-      flex-shrink: 0;
-    }
-    .view-all:hover { color: var(--text); gap: 9px; }
-
-    /* Filter tabs */
-    .filters {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-      margin-bottom: 28px;
-    }
-    .ftab {
-      padding: 7px 16px;
-      border-radius: 100px;
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--muted);
-      background: var(--surface2);
-      border: 1px solid var(--border);
-      cursor: pointer;
-      transition: background .15s, color .15s, border-color .15s;
-      user-select: none;
-    }
-    .ftab:hover { color: var(--text); }
-    .ftab.on {
-      background: var(--text);
-      color: var(--bg);
-      border-color: var(--text);
-    }
-
     /* Project cards — bento: one featured (2 cols) + rest at 1 col */
     .proj-grid {
       display: grid;
@@ -896,15 +857,6 @@
           <p class="eyebrow-sm">My Work</p>
           <h2 class="sec-h2">Selected Projects</h2>
         </div>
-        <a href="#work" class="view-all">View All Projects &rarr;</a>
-      </div>
-
-      <div class="filters" role="group" aria-label="Filter projects">
-        <button class="ftab on">All</button>
-        <button class="ftab">Web Design</button>
-        <button class="ftab">Mobile</button>
-        <button class="ftab">UI/UX</button>
-        <button class="ftab">AI</button>
       </div>
 
       <div class="proj-grid">
@@ -1181,14 +1133,6 @@
       });
     }, { rootMargin: `-${parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-h')) || 68}px 0px -60% 0px` });
     sections.forEach(s => observer.observe(s));
-
-    // Filter tabs
-    document.querySelectorAll('.ftab').forEach(tab => {
-      tab.addEventListener('click', () => {
-        document.querySelectorAll('.ftab').forEach(t => t.classList.remove('on'));
-        tab.classList.add('on');
-      });
-    });
 
     // Scroll reveal
     const reveals = document.querySelectorAll('.reveal');
