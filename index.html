@@ -16,13 +16,15 @@
       --surface2: #F0EFE9;
       --border:   #E3E1DA;
       --accent:   #E86A3A;
-      --violet:   #7B5CF0;
+      --accent2:  #CF5A2C;
       --text:     #0D0D0B;
       --muted:    #78756E;
       --ghost:    #C0BDB6;
       --shadow:   rgba(0,0,0,.06);
       --shadow2:  rgba(0,0,0,.12);
       --nav-h:    68px;
+      --r-sm:     6px;
+      --r-md:     14px;
     }
 
     /* dark (explicit toggle only — site defaults to light) */
@@ -32,7 +34,7 @@
       --surface2: #181818;
       --border:   #242424;
       --accent:   #E86A3A;
-      --violet:   #9B7CF0;
+      --accent2:  #F08856;
       --text:     #F2F1ED;
       --muted:    #737068;
       --ghost:    #333330;
@@ -124,7 +126,7 @@
       color: var(--bg);
       font-size: 13px;
       font-weight: 600;
-      border-radius: 4px;
+      border-radius: var(--r-sm);
       white-space: nowrap;
       transition: opacity .15s;
     }
@@ -135,7 +137,7 @@
       display: flex; align-items: center; justify-content: center;
       background: none;
       border: 1px solid var(--border);
-      border-radius: 5px;
+      border-radius: var(--r-sm);
       cursor: pointer;
       color: var(--muted);
       font-size: 14px;
@@ -165,13 +167,11 @@
       padding: 72px 0 64px;
     }
     .hero-eyebrow {
-      display: inline-block;
-      font-size: 13px;
+      display: block;
+      font-size: 16px;
       font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--violet);
-      margin-bottom: 22px;
+      color: var(--muted);
+      margin-bottom: 14px;
     }
     .hero-h1 {
       font-family: 'Nunito', sans-serif;
@@ -210,7 +210,7 @@
       color: var(--bg);
       font-weight: 600;
       font-size: 15px;
-      border-radius: 5px;
+      border-radius: var(--r-sm);
       transition: opacity .15s, transform .15s;
     }
     .btn-filled:hover { opacity: .84; transform: translateY(-2px); }
@@ -224,18 +224,11 @@
       color: var(--text);
       font-size: 15px;
       font-weight: 500;
-      border-radius: 5px;
+      border-radius: var(--r-sm);
       transition: border-color .15s, background .15s;
     }
     .btn-outline:hover { border-color: var(--muted); background: var(--surface); }
     .btn-outline:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-    .scroll-hint {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--ghost);
-    }
 
     /* ─── HERO VISUAL ────────────────────────────────────── */
     .hero-visual {
@@ -255,8 +248,8 @@
       height: 100%;
       border-radius: 50%;
       background: radial-gradient(ellipse at 38% 32%,
-        rgba(123,92,240,.18) 0%,
-        rgba(232,106,58,.1) 55%,
+        rgba(232,106,58,.22) 0%,
+        rgba(232,106,58,.06) 55%,
         transparent 100%);
       border: 1px solid var(--border);
       display: flex;
@@ -264,29 +257,6 @@
       justify-content: center;
       overflow: hidden;
     }
-    .circle-inner {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 10px;
-    }
-    .ci-initials {
-      font-family: 'Nunito', sans-serif;
-      font-weight: 800;
-      font-size: clamp(56px, 8vw, 110px);
-      letter-spacing: -0.05em;
-      color: var(--ghost);
-      line-height: 1;
-      opacity: .5;
-    }
-    .ci-label {
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--ghost);
-    }
-
     /* Floating availability card */
     .avail-card {
       position: absolute;
@@ -294,7 +264,7 @@
       right: -8%;
       background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: 12px;
+      border-radius: var(--r-md);
       padding: 18px 22px;
       box-shadow: 0 12px 40px var(--shadow2);
       min-width: 210px;
@@ -405,7 +375,7 @@
       border-color: var(--text);
     }
 
-    /* Project cards */
+    /* Project cards — bento: one featured (2 cols) + rest at 1 col */
     .proj-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -414,11 +384,13 @@
     .proj-card {
       background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: 10px;
+      border-radius: var(--r-md);
       overflow: hidden;
       transition: transform .22s, box-shadow .22s;
       cursor: pointer;
     }
+    .proj-card.featured { grid-column: span 2; }
+    .proj-card.featured .thumb { height: 260px; }
     .proj-card:hover {
       transform: translateY(-5px);
       box-shadow: 0 20px 48px var(--shadow2);
@@ -458,26 +430,6 @@
     .t1-b1 { background: #15803D; }
     .t1-b2 { background: #166534; }
 
-    /* BlackHabit thumb */
-    .tbh .thumb { background: #0A0A0A; }
-    .tbh .thumb-chrome { background: #060606; }
-    .tbh-nav { height: 18px; background: #111; display: flex; align-items: center; padding: 0 10px; gap: 8px; border-bottom: 1px solid #222; margin-bottom: 10px; }
-    .tbh-logo { font-size: 7px; font-weight: 800; letter-spacing: .06em; color: #F5C300; font-family: sans-serif; }
-    .tbh-links { display: flex; gap: 6px; margin-left: auto; }
-    .tbh-link { width: 16px; height: 4px; border-radius: 1px; background: #333; }
-    .tbh-hero { padding: 0 10px; display: flex; align-items: flex-start; gap: 8px; }
-    .tbh-left { flex: 1; }
-    .tbh-badge { display: inline-block; font-size: 5px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #F5C300; background: rgba(245,195,0,.12); border-radius: 2px; padding: 1px 4px; margin-bottom: 5px; }
-    .tbh-h { font-size: 10px; font-weight: 900; color: #fff; line-height: 1.15; letter-spacing: -.01em; margin-bottom: 5px; }
-    .tbh-price { font-size: 9px; font-weight: 800; color: #F5C300; margin-bottom: 6px; }
-    .tbh-btn { display: inline-block; background: #F5C300; color: #000; font-size: 5px; font-weight: 800; padding: 2px 6px; border-radius: 2px; letter-spacing: .04em; }
-    .tbh-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; padding: 0 10px; margin-top: 8px; }
-    .tbh-card { background: #1A1A1A; border-radius: 3px; padding: 5px; }
-    .tbh-img { height: 18px; background: #2A2A2A; border-radius: 2px; margin-bottom: 3px; display: flex; align-items: center; justify-content: center; }
-    .tbh-dot { width: 10px; height: 10px; border-radius: 50%; background: #F5C300; opacity: .4; }
-    .tbh-cn { font-size: 5px; font-weight: 700; color: #fff; margin-bottom: 1px; }
-    .tbh-cp { font-size: 5px; font-weight: 800; color: #F5C300; }
-
     /* Card link */
     .card-link {
       display: inline-flex;
@@ -490,33 +442,6 @@
       transition: gap .15s;
     }
     .card-link:hover { gap: 8px; }
-
-    /* Placeholder thumb */
-    .thumb-ph {
-      width: 100%; height: 190px;
-      background: var(--surface2);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      border-bottom: 1px solid var(--border);
-    }
-    .ph-ring {
-      width: 38px; height: 38px;
-      border: 1.5px dashed var(--ghost);
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 18px;
-      color: var(--ghost);
-    }
-    .ph-lbl {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.09em;
-      text-transform: uppercase;
-      color: var(--ghost);
-    }
 
     .card-foot {
       padding: 18px 20px 20px;
@@ -629,7 +554,7 @@
       gap: 8px;
       padding: 10px 20px;
       border: 1px solid var(--border);
-      border-radius: 5px;
+      border-radius: var(--r-sm);
       font-size: 13px;
       font-weight: 500;
       color: var(--muted);
@@ -662,19 +587,36 @@
       padding: 96px 0;
       border-top: 1px solid var(--border);
     }
+    /* Asymmetric split: one featured quote + a stack of minor quotes */
     .tcard-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: 1.3fr 1fr;
+      gap: 22px;
+      align-items: stretch;
+    }
+    .tcard-mini-stack {
+      display: flex;
+      flex-direction: column;
       gap: 22px;
     }
     .tcard {
       background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: 10px;
+      border-radius: var(--r-md);
       padding: 28px 28px 24px;
       display: flex;
       flex-direction: column;
       gap: 16px;
+    }
+    .tcard.featured { padding: 40px 40px 36px; justify-content: center; }
+    .tcard.featured .tcard-quote { font-size: 19px; }
+    .tcard.mini { padding: 20px 24px; flex: 1; }
+    .tcard.mini .tcard-quote {
+      font-size: 13px;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
     }
     .tcard-stars {
       display: flex;
@@ -722,24 +664,21 @@
       padding: 96px 0;
       border-top: 1px solid var(--border);
     }
-    .blog-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
-    }
+    /* Row list — distinct from the bento grid and the quote split above */
+    .blog-grid { border-top: 1px solid var(--border); }
     .bcard {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 28px;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
+      display: grid;
+      grid-template-columns: 132px 1fr auto;
+      gap: 24px;
+      align-items: center;
+      padding: 30px 4px;
+      border-bottom: 1px solid var(--border);
     }
     .bcard-chips {
       display: flex;
+      flex-direction: column;
       gap: 6px;
-      flex-wrap: wrap;
+      align-items: flex-start;
     }
     .bcard-chip {
       font-size: 10px;
@@ -760,18 +699,11 @@
       line-height: 1.3;
       text-wrap: balance;
     }
+    .bcard-body { display: flex; flex-direction: column; gap: 6px; }
     .bcard-teaser {
       font-size: 13px;
       color: var(--muted);
       line-height: 1.65;
-      flex: 1;
-    }
-    .bcard-footer {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding-top: 14px;
-      border-top: 1px solid var(--border);
     }
     .bcard-badge {
       font-size: 11px;
@@ -779,6 +711,8 @@
       letter-spacing: 0.06em;
       text-transform: uppercase;
       color: var(--ghost);
+      white-space: nowrap;
+      justify-self: end;
     }
 
     /* ─── REVEAL ANIMATIONS ─────────────────────────────── */
@@ -796,7 +730,7 @@
     .proj-grid .proj-card:nth-child(4) { transition-delay: .3s; }
     .proj-grid .proj-card:nth-child(5) { transition-delay: .4s; }
     .tcard-grid .tcard:nth-child(2) { transition-delay: .1s; }
-    .tcard-grid .tcard:nth-child(3) { transition-delay: .2s; }
+    .tcard-mini-stack .tcard:nth-child(2) { transition-delay: .15s; }
     .blog-grid .bcard:nth-child(2) { transition-delay: .1s; }
     .blog-grid .bcard:nth-child(3) { transition-delay: .2s; }
 
@@ -808,12 +742,16 @@
       .hero-visual { display: none; }
       .work-head { flex-direction: column; align-items: flex-start; gap: 12px; }
       .proj-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+      .proj-card.featured { grid-column: span 2; }
       .about-grid { grid-template-columns: 1fr; gap: 48px; }
       .tcard-grid { grid-template-columns: 1fr; }
-      .blog-grid { grid-template-columns: 1fr; }
+      .bcard { grid-template-columns: 1fr; gap: 8px; padding: 24px 4px; }
+      .bcard-badge { justify-self: start; }
     }
     @media (max-width: 560px) {
       .proj-grid { grid-template-columns: 1fr; }
+      .proj-card.featured { grid-column: span 1; }
+      .proj-card.featured .thumb { height: 190px; }
       .hero-h1 { font-size: clamp(34px, 9vw, 52px); }
     }
     @media (prefers-reduced-motion: reduce) {
@@ -866,7 +804,7 @@
 
         <!-- Left -->
         <div>
-          <span class="hero-eyebrow">Hello, I'm MaelPlays</span>
+          <span class="hero-eyebrow">Hi, I'm Esmael</span>
           <h1 class="hero-h1">
             I design and build digital experiences that make an&nbsp;<em>impact.</em>
           </h1>
@@ -877,7 +815,6 @@
             <a href="#work" class="btn-filled">View My Work &rarr;</a>
             <a href="#about" class="btn-outline">About Me</a>
           </div>
-          <span class="scroll-hint">Scroll Down &darr;</span>
         </div>
 
         <!-- Right -->
@@ -887,8 +824,8 @@
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 230" width="100%" height="100%" aria-label="Cartoon portrait of Esmael">
                 <defs>
                   <radialGradient id="cBg" cx="50%" cy="35%" r="70%">
-                    <stop offset="0%" stop-color="#7B5CF0" stop-opacity="0.13"/>
-                    <stop offset="100%" stop-color="#E86A3A" stop-opacity="0.07"/>
+                    <stop offset="0%" stop-color="#E86A3A" stop-opacity="0.16"/>
+                    <stop offset="100%" stop-color="#E86A3A" stop-opacity="0.05"/>
                   </radialGradient>
                 </defs>
                 <!-- bg -->
@@ -942,7 +879,7 @@
                 <span class="avail-badge">Available for Freelance</span>
               </div>
               <p class="avail-p">Let's work together on your next project.</p>
-              <a href="#contact" class="avail-link">Get in Touch &rarr;</a>
+              <a href="#contact" class="avail-link">Let's Talk &rarr;</a>
             </div>
           </div>
         </div>
@@ -972,20 +909,20 @@
 
       <div class="proj-grid">
 
-        <!-- Project 01 — real -->
-        <div class="proj-card t1 reveal">
+        <!-- Project 01 — real, featured -->
+        <div class="proj-card t1 featured reveal">
           <div class="thumb">
             <div class="thumb-chrome">
               <span class="dot-r"></span>
               <span class="dot-r"></span>
               <span class="dot-r"></span>
             </div>
-            <img src="listing-thumb.jpg" alt="ListingAI — AI product listing generator" style="position:absolute;top:26px;left:0;width:100%;height:calc(100% - 26px);object-fit:cover;object-position:top left;display:block;">
+            <img src="listing-thumb.jpg" alt="ListingAI, AI product listing generator" style="position:absolute;top:26px;left:0;width:100%;height:calc(100% - 26px);object-fit:cover;object-position:top left;display:block;">
           </div>
           <div class="card-foot">
             <p class="card-name">ListingAI</p>
             <p class="card-cat">AI / Web App</p>
-            <p class="card-desc">Upload one product photo and get ready-to-paste listings for Lazada, Shopee, TikTok Shop, and Facebook Marketplace — each formatted to its own rules.</p>
+            <p class="card-desc">Upload one product photo and get ready-to-paste listings for Lazada, Shopee, TikTok Shop, and Facebook Marketplace, each formatted to its own rules.</p>
             <a href="https://listingai-zeta.vercel.app/" target="_blank" rel="noopener" class="card-link">View Live &rarr;</a>
           </div>
         </div>
@@ -998,12 +935,12 @@
               <span class="dot-r"></span>
               <span class="dot-r"></span>
             </div>
-            <img src="dota2-thumb.jpg" alt="Dota 2 Draft Assistant — counter-pick and hero suggestion tool" style="position:absolute;top:26px;left:0;width:100%;height:calc(100% - 26px);object-fit:cover;object-position:top left;display:block;">
+            <img src="dota2-thumb.jpg" alt="Dota 2 Draft Assistant, counter-pick and hero suggestion tool" style="position:absolute;top:26px;left:0;width:100%;height:calc(100% - 26px);object-fit:cover;object-position:top left;display:block;">
           </div>
           <div class="card-foot">
             <p class="card-name">Dota 2 Draft Assistant</p>
             <p class="card-cat">Gaming / Web App</p>
-            <p class="card-desc">Pick allies, flag enemies, and get counter-pick suggestions and item builds informed by real match data — built for ranked drafting.</p>
+            <p class="card-desc">Pick allies, flag enemies, and get counter-pick suggestions and item builds informed by real match data, built for ranked drafting.</p>
             <a href="https://dota2-draft-assistant.vercel.app/" target="_blank" rel="noopener" class="card-link">View Live &rarr;</a>
           </div>
         </div>
@@ -1016,12 +953,12 @@
               <span class="dot-r"></span>
               <span class="dot-r"></span>
             </div>
-            <img src="businessflow-thumb.jpg" alt="BusinessFlow — small business management app" style="position:absolute;top:26px;left:0;width:100%;height:calc(100% - 26px);object-fit:cover;object-position:top left;display:block;">
+            <img src="businessflow-thumb.jpg" alt="BusinessFlow, small business management app" style="position:absolute;top:26px;left:0;width:100%;height:calc(100% - 26px);object-fit:cover;object-position:top left;display:block;">
           </div>
           <div class="card-foot">
             <p class="card-name">BusinessFlow</p>
             <p class="card-cat">SaaS / Web App</p>
-            <p class="card-desc">All-in-one business management for small shops — track sales, inventory, expenses, customers, and suppliers from a single dashboard.</p>
+            <p class="card-desc">All-in-one business management for small shops. Track sales, inventory, expenses, customers, and suppliers from a single dashboard.</p>
             <a href="https://businessflow-web.vercel.app/" target="_blank" rel="noopener" class="card-link">View Live &rarr;</a>
           </div>
         </div>
@@ -1034,59 +971,30 @@
               <span class="dot-r"></span>
               <span class="dot-r"></span>
             </div>
-            <img src="vantage-thumb.jpg" alt="Vantage — cross-platform social media analytics dashboard" style="position:absolute;top:26px;left:0;width:100%;height:calc(100% - 26px);object-fit:cover;object-position:top left;display:block;">
+            <img src="vantage-thumb.jpg" alt="Vantage, cross-platform social media analytics dashboard" style="position:absolute;top:26px;left:0;width:100%;height:calc(100% - 26px);object-fit:cover;object-position:top left;display:block;">
           </div>
           <div class="card-foot">
             <p class="card-name">Vantage</p>
             <p class="card-cat">Analytics / Web App</p>
-            <p class="card-desc">Cross-platform analytics dashboard — connect YouTube, Instagram, and TikTok to track followers, views, engagement, and the best time to post.</p>
+            <p class="card-desc">Cross-platform analytics dashboard. Connect YouTube, Instagram, and TikTok to track followers, views, engagement, and the best time to post.</p>
             <a href="https://vantage-jet-two.vercel.app/" target="_blank" rel="noopener" class="card-link">View Live &rarr;</a>
           </div>
         </div>
 
         <!-- Project 05 — BlackHabit -->
-        <div class="proj-card tbh reveal">
+        <div class="proj-card reveal">
           <div class="thumb">
             <div class="thumb-chrome">
               <span class="dot-r"></span>
               <span class="dot-r"></span>
               <span class="dot-r"></span>
             </div>
-            <div class="thumb-body">
-              <div class="tbh-nav">
-                <span class="tbh-logo">BLACKHABIT</span>
-                <div class="tbh-links">
-                  <span class="tbh-link"></span>
-                  <span class="tbh-link"></span>
-                  <span class="tbh-link"></span>
-                </div>
-              </div>
-              <div class="tbh-hero">
-                <div class="tbh-left">
-                  <span class="tbh-badge">Combo</span>
-                  <div class="tbh-h">CRISPY<br>CHICKEN<br>COMBO</div>
-                  <div class="tbh-price">₱159</div>
-                  <span class="tbh-btn">SEE MENU</span>
-                </div>
-              </div>
-              <div class="tbh-cards">
-                <div class="tbh-card">
-                  <div class="tbh-img"><span class="tbh-dot"></span></div>
-                  <div class="tbh-cn">Classic Burger</div>
-                  <div class="tbh-cp">₱129</div>
-                </div>
-                <div class="tbh-card">
-                  <div class="tbh-img"><span class="tbh-dot"></span></div>
-                  <div class="tbh-cn">Crispy Chicken</div>
-                  <div class="tbh-cp">₱139</div>
-                </div>
-              </div>
-            </div>
+            <img src="blackhabit-thumb.jpg" alt="BlackHabit, Filipino fast food ordering site" style="position:absolute;top:26px;left:0;width:100%;height:calc(100% - 26px);object-fit:cover;object-position:top left;display:block;">
           </div>
           <div class="card-foot">
             <p class="card-name">BlackHabit</p>
             <p class="card-cat">Restaurant / Web App</p>
-            <p class="card-desc">Full-stack ordering site for a Filipino fast food brand — menu browsing, daily deals, combo builder, and store locator across Metro Manila locations.</p>
+            <p class="card-desc">Full-stack ordering site for a Filipino fast food brand: menu browsing, daily deals, combo builder, and store locator across Metro Manila locations.</p>
             <a href="https://blackhabit.vercel.app/" target="_blank" rel="noopener" class="card-link">View Live &rarr;</a>
           </div>
         </div>
@@ -1098,17 +1006,14 @@
   <!-- TESTIMONIALS -->
   <section id="testimonials">
     <div class="wrap">
-      <div class="sec-head reveal" style="margin-bottom:40px;">
-        <div>
-          <p class="eyebrow-sm">Kind Words</p>
-          <h2 class="sec-h2">What People Say</h2>
-        </div>
+      <div class="reveal" style="margin-bottom:40px;">
+        <h2 class="sec-h2">What People Say</h2>
       </div>
       <div class="tcard-grid">
 
-        <div class="tcard reveal">
+        <div class="tcard featured reveal">
           <div class="tcard-stars" aria-label="5 stars">★★★★★</div>
-          <p class="tcard-quote">"Esmael delivered a clean, fast website that our customers actually enjoy using. Attention to detail was impressive — he caught things we hadn't even noticed."</p>
+          <p class="tcard-quote">"Esmael delivered a clean, fast website that our customers actually enjoy using. Attention to detail was impressive. He caught things we hadn't even noticed."</p>
           <div class="tcard-author">
             <div class="tcard-avatar">MS</div>
             <div>
@@ -1118,26 +1023,28 @@
           </div>
         </div>
 
-        <div class="tcard reveal">
-          <div class="tcard-stars" aria-label="5 stars">★★★★★</div>
-          <p class="tcard-quote">"ListingAI saved me hours every week. I upload one photo and have four ready-to-post listings in seconds. Exactly what I needed for my Shopee store."</p>
-          <div class="tcard-author">
-            <div class="tcard-avatar">JR</div>
-            <div>
-              <p class="tcard-name">Jake R.</p>
-              <p class="tcard-role">Online Seller</p>
+        <div class="tcard-mini-stack">
+          <div class="tcard mini reveal">
+            <div class="tcard-stars" aria-label="5 stars">★★★★★</div>
+            <p class="tcard-quote">"ListingAI saved me hours every week. I upload one photo and have four ready-to-post listings in seconds."</p>
+            <div class="tcard-author">
+              <div class="tcard-avatar">JR</div>
+              <div>
+                <p class="tcard-name">Jake R.</p>
+                <p class="tcard-role">Online Seller</p>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="tcard reveal">
-          <div class="tcard-stars" aria-label="5 stars">★★★★★</div>
-          <p class="tcard-quote">"Great communication throughout the project. The final product was modern, responsive, and launched on time. Would definitely work with Esmael again."</p>
-          <div class="tcard-author">
-            <div class="tcard-avatar">AL</div>
-            <div>
-              <p class="tcard-name">Ana L.</p>
-              <p class="tcard-role">Startup Founder</p>
+          <div class="tcard mini reveal">
+            <div class="tcard-stars" aria-label="5 stars">★★★★★</div>
+            <p class="tcard-quote">"Great communication throughout. Modern, responsive, and launched on time."</p>
+            <div class="tcard-author">
+              <div class="tcard-avatar">AL</div>
+              <div>
+                <p class="tcard-name">Ana L.</p>
+                <p class="tcard-role">Startup Founder</p>
+              </div>
             </div>
           </div>
         </div>
@@ -1150,7 +1057,6 @@
   <section id="blog">
     <div class="wrap">
       <div class="reveal" style="margin-bottom:40px;">
-        <p class="eyebrow-sm">Writing</p>
         <h2 class="sec-h2">Thoughts &amp; Articles</h2>
       </div>
       <div class="blog-grid">
@@ -1160,11 +1066,11 @@
             <span class="bcard-chip">AI</span>
             <span class="bcard-chip">Web Dev</span>
           </div>
-          <p class="bcard-title">Building an AI Product Listing Generator with Next.js</p>
-          <p class="bcard-teaser">How I built ListingAI — the architecture decisions, AI integration, and lessons learned from shipping a real product.</p>
-          <div class="bcard-footer">
-            <span class="bcard-badge">Coming Soon</span>
+          <div class="bcard-body">
+            <p class="bcard-title">Building an AI Product Listing Generator with Next.js</p>
+            <p class="bcard-teaser">How I built ListingAI: the architecture decisions, AI integration, and lessons learned from shipping a real product.</p>
           </div>
+          <span class="bcard-badge">Coming Soon</span>
         </div>
 
         <div class="bcard reveal">
@@ -1172,11 +1078,11 @@
             <span class="bcard-chip">UI/UX</span>
             <span class="bcard-chip">Design</span>
           </div>
-          <p class="bcard-title">From Figma to Code: My Design-to-Dev Workflow</p>
-          <p class="bcard-teaser">A walkthrough of how I go from wireframe to production — the tools, the handoff process, and what I've learned.</p>
-          <div class="bcard-footer">
-            <span class="bcard-badge">Coming Soon</span>
+          <div class="bcard-body">
+            <p class="bcard-title">From Figma to Code: My Design-to-Dev Workflow</p>
+            <p class="bcard-teaser">A walkthrough of how I go from wireframe to production: the tools, the handoff process, and what I've learned.</p>
           </div>
+          <span class="bcard-badge">Coming Soon</span>
         </div>
 
         <div class="bcard reveal">
@@ -1184,11 +1090,11 @@
             <span class="bcard-chip">Web Dev</span>
             <span class="bcard-chip">Tips</span>
           </div>
-          <p class="bcard-title">How I Launched a Fullstack App on Vercel for Free</p>
-          <p class="bcard-teaser">The exact stack and deployment setup I use for side projects — fast to ship, free to start, easy to scale.</p>
-          <div class="bcard-footer">
-            <span class="bcard-badge">Coming Soon</span>
+          <div class="bcard-body">
+            <p class="bcard-title">How I Launched a Fullstack App on Vercel for Free</p>
+            <p class="bcard-teaser">The exact stack and deployment setup I use for side projects: fast to ship, free to start, easy to scale.</p>
           </div>
+          <span class="bcard-badge">Coming Soon</span>
         </div>
 
       </div>
@@ -1201,7 +1107,7 @@
       <div class="about-grid">
         <div class="reveal">
           <h2 class="about-h">A passionate developer &amp; designer who loves creating meaningful digital experiences.</h2>
-          <p class="about-p">I work across the full stack — from interface design to backend systems, mobile apps to AI-powered tools. Every project gets my full attention and craft.</p>
+          <p class="about-p">I work across the full stack, from interface design to backend systems, mobile apps to AI-powered tools. Every project gets my full attention and craft.</p>
           <p class="about-p">I care about the details: <strong>fast load times, accessible interfaces, and code that the next person can actually read.</strong></p>
         </div>
         <ul class="facts reveal">
@@ -1256,7 +1162,7 @@
     <div class="wrap">
       <div class="foot">
         <span class="foot-l logo-word"><span class="mael">Mael</span><span class="plays">Plays</span></span>
-        <span class="foot-r">&copy; 2025 &mdash; Built with care</span>
+        <span class="foot-r">&copy; 2026. Built with care</span>
       </div>
     </div>
   </footer>
