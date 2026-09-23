@@ -1,5 +1,5 @@
 {
-  "outputDirectory": ".",
-  "framework": null,
-  "buildCommand": null
+  "framework": "vite",
+  "buildCommand": "vite build",
+  "outputDirectory": "dist"
 }

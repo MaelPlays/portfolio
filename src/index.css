@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+/* dark: keyed to explicit [data-theme="dark"] toggle, not system preference */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+:root {
+  --bg:       #F6F5F1;
+  --surface:  #FFFFFF;
+  --surface-2: #F0EFE9;
+  --border:   #E3E1DA;
+  --accent:   #E86A3A;
+  --accent-2: #CF5A2C;
+  --text:     #0D0D0B;
+  --muted:    #78756E;
+  --ghost:    #C0BDB6;
+  --shadow-2: rgba(0, 0, 0, .12);
+  --nav-h:    68px;
+}
+
+[data-theme="dark"] {
+  --bg:       #080808;
+  --surface:  #111111;
+  --surface-2: #181818;
+  --border:   #242424;
+  --accent:   #E86A3A;
+  --accent-2: #F08856;
+  --text:     #F2F1ED;
+  --muted:    #737068;
+  --ghost:    #333330;
+  --shadow-2: rgba(0, 0, 0, .56);
+}
+
+@theme {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-border: var(--border);
+  --color-accent: var(--accent);
+  --color-accent-2: var(--accent-2);
+  --color-text: var(--text);
+  --color-muted: var(--muted);
+  --color-ghost: var(--ghost);
+
+  --font-sans: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-display: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-logo: 'Syne', sans-serif;
+
+  --radius-sm: 6px;
+  --radius-md: 20px;
+  --radius-pill: 999px;
+}
+
+html {
+  scroll-behavior: auto; /* Lenis owns smooth scroll */
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1 !important; transform: none !important; }
+}

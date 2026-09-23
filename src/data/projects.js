@@ -1,0 +1,43 @@
+export const projects = [
+  {
+    slug: 'listingai',
+    name: 'ListingAI',
+    category: 'AI / Web App',
+    desc: 'Upload one product photo and get ready-to-paste listings for Lazada, Shopee, TikTok Shop, and Facebook Marketplace, each formatted to its own rules.',
+    url: 'https://listingai-zeta.vercel.app/',
+    thumb: '/listing-thumb.jpg',
+    featured: true,
+  },
+  {
+    slug: 'dota2-draft-assistant',
+    name: 'Dota 2 Draft Assistant',
+    category: 'Gaming / Web App',
+    desc: 'Pick allies, flag enemies, and get counter-pick suggestions and item builds informed by real match data, built for ranked drafting.',
+    url: 'https://dota2-draft-assistant.vercel.app/',
+    thumb: '/dota2-thumb.jpg',
+  },
+  {
+    slug: 'businessflow',
+    name: 'BusinessFlow',
+    category: 'SaaS / Web App',
+    desc: 'All-in-one business management for small shops. Track sales, inventory, expenses, customers, and suppliers from a single dashboard.',
+    url: 'https://businessflow-web.vercel.app/',
+    thumb: '/businessflow-thumb.jpg',
+  },
+  {
+    slug: 'vantage',
+    name: 'Vantage',
+    category: 'Analytics / Web App',
+    desc: 'Cross-platform analytics dashboard. Connect YouTube, Instagram, and TikTok to track followers, views, engagement, and the best time to post.',
+    url: 'https://vantage-jet-two.vercel.app/',
+    thumb: '/vantage-thumb.jpg',
+  },
+  {
+    slug: 'blackhabit',
+    name: 'BlackHabit',
+    category: 'Restaurant / Web App',
+    desc: 'Full-stack ordering site for a Filipino fast food brand: menu browsing, daily deals, combo builder, and store locator across Metro Manila locations.',
+    url: 'https://blackhabit.vercel.app/',
+    thumb: '/blackhabit-thumb.jpg',
+  },
+];
