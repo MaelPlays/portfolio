@@ -7,7 +7,7 @@
   <meta name="description" content="Freelance developer & designer building web, mobile, and AI-powered products." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;0,800;1,700&family=Nunito+Sans:ital,opsz,wght@0,6..12,300;0,6..12,400;0,6..12,500;1,6..12,400&family=Syne:wght@800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@800&display=swap" rel="stylesheet" />
   <style>
     /* ─── TOKENS ─────────────────────────────────────────── */
     :root {
@@ -24,7 +24,10 @@
       --shadow2:  rgba(0,0,0,.12);
       --nav-h:    68px;
       --r-sm:     6px;
-      --r-md:     14px;
+      --r-md:     20px;
+      --r-pill:   999px;
+      --font-ui:  -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      --font-display: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     }
 
     /* dark (explicit toggle only — site defaults to light) */
@@ -47,7 +50,7 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body {
-      font-family: 'Nunito Sans', system-ui, sans-serif;
+      font-family: var(--font-ui);
       background: var(--bg);
       color: var(--text);
       line-height: 1.6;
@@ -126,7 +129,7 @@
       color: var(--bg);
       font-size: 13px;
       font-weight: 600;
-      border-radius: var(--r-sm);
+      border-radius: var(--r-pill);
       white-space: nowrap;
       transition: opacity .15s;
     }
@@ -137,7 +140,7 @@
       display: flex; align-items: center; justify-content: center;
       background: none;
       border: 1px solid var(--border);
-      border-radius: var(--r-sm);
+      border-radius: 50%;
       cursor: pointer;
       color: var(--muted);
       font-size: 14px;
@@ -174,7 +177,7 @@
       margin-bottom: 14px;
     }
     .hero-h1 {
-      font-family: 'Nunito', sans-serif;
+      font-family: var(--font-display);
       font-weight: 800;
       font-size: clamp(36px, 4.8vw, 60px);
       line-height: 1.1;
@@ -210,7 +213,7 @@
       color: var(--bg);
       font-weight: 600;
       font-size: 15px;
-      border-radius: var(--r-sm);
+      border-radius: var(--r-pill);
       transition: opacity .15s, transform .15s;
     }
     .btn-filled:hover { opacity: .84; transform: translateY(-2px); }
@@ -224,7 +227,7 @@
       color: var(--text);
       font-size: 15px;
       font-weight: 500;
-      border-radius: var(--r-sm);
+      border-radius: var(--r-pill);
       transition: border-color .15s, background .15s;
     }
     .btn-outline:hover { border-color: var(--muted); background: var(--surface); }
@@ -310,7 +313,7 @@
 
     /* ─── WORK ───────────────────────────────────────────── */
     #work {
-      padding: 96px 0;
+      padding: 128px 0;
       border-top: 1px solid var(--border);
     }
     .work-head {
@@ -329,7 +332,7 @@
       margin-bottom: 8px;
     }
     .sec-h2 {
-      font-family: 'Nunito', sans-serif;
+      font-family: var(--font-display);
       font-weight: 800;
       font-size: clamp(28px, 3.8vw, 46px);
       letter-spacing: -0.01em;
@@ -408,7 +411,7 @@
       padding: 18px 20px 20px;
     }
     .card-name {
-      font-family: 'Nunito', sans-serif;
+      font-family: var(--font-display);
       font-weight: 700;
       font-size: 16px;
       letter-spacing: -0.01em;
@@ -431,7 +434,7 @@
 
     /* ─── ABOUT ──────────────────────────────────────────── */
     #about {
-      padding: 96px 0;
+      padding: 128px 0;
       border-top: 1px solid var(--border);
     }
     .about-grid {
@@ -441,7 +444,7 @@
       align-items: start;
     }
     .about-h {
-      font-family: 'Nunito', sans-serif;
+      font-family: var(--font-display);
       font-weight: 800;
       font-size: clamp(26px, 3.4vw, 42px);
       letter-spacing: -0.01em;
@@ -473,12 +476,12 @@
 
     /* ─── CONTACT ────────────────────────────────────────── */
     #contact {
-      padding: 96px 0;
+      padding: 128px 0;
       border-top: 1px solid var(--border);
       text-align: center;
     }
     .contact-h {
-      font-family: 'Nunito', sans-serif;
+      font-family: var(--font-display);
       font-weight: 800;
       font-size: clamp(36px, 5.5vw, 76px);
       letter-spacing: -0.02em;
@@ -494,7 +497,7 @@
     }
     .contact-email {
       display: inline-block;
-      font-family: 'Nunito', sans-serif;
+      font-family: var(--font-display);
       font-weight: 700;
       font-size: clamp(18px, 2.4vw, 30px);
       letter-spacing: -0.02em;
@@ -515,7 +518,7 @@
       gap: 8px;
       padding: 10px 20px;
       border: 1px solid var(--border);
-      border-radius: var(--r-sm);
+      border-radius: var(--r-pill);
       font-size: 13px;
       font-weight: 500;
       color: var(--muted);
@@ -536,7 +539,7 @@
       gap: 12px;
     }
     .foot-l {
-      font-family: 'Nunito', sans-serif;
+      font-family: var(--font-display);
       font-weight: 700;
       font-size: 13px;
       color: var(--muted);
@@ -545,7 +548,7 @@
 
     /* ─── TESTIMONIALS ───────────────────────────────────── */
     #testimonials {
-      padding: 96px 0;
+      padding: 128px 0;
       border-top: 1px solid var(--border);
     }
     /* Asymmetric split: one featured quote + a stack of minor quotes */
@@ -605,14 +608,14 @@
       background: var(--surface2);
       border: 1px solid var(--border);
       display: flex; align-items: center; justify-content: center;
-      font-family: 'Nunito', sans-serif;
+      font-family: var(--font-display);
       font-weight: 700;
       font-size: 13px;
       color: var(--muted);
       flex-shrink: 0;
     }
     .tcard-name {
-      font-family: 'Nunito', sans-serif;
+      font-family: var(--font-display);
       font-weight: 700;
       font-size: 14px;
       color: var(--text);
@@ -622,7 +625,7 @@
 
     /* ─── BLOG ───────────────────────────────────────────── */
     #blog {
-      padding: 96px 0;
+      padding: 128px 0;
       border-top: 1px solid var(--border);
     }
     /* Row list — distinct from the bento grid and the quote split above */
@@ -652,7 +655,7 @@
       color: var(--muted);
     }
     .bcard-title {
-      font-family: 'Nunito', sans-serif;
+      font-family: var(--font-display);
       font-weight: 700;
       font-size: 16px;
       letter-spacing: -0.01em;
